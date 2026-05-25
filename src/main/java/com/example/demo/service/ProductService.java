@@ -8,10 +8,15 @@ import java.util.List;
 
 @Service
 public class ProductService {
+
     @Autowired
     private ProductRepository repository;
 
     public List<Product> getAll() {
         return repository.findAll();
+    }
+
+    public Product save(Product product) {
+        return repository.save(product);
     }
 }
