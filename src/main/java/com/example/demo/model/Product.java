@@ -8,7 +8,7 @@ import lombok.Data;
 @Document(collection = "product")
 public class Product {
     @Id
-    private String id; // En Mongo suele ser String
+    private String id;
     private String name;
     private Double price;
     private String provider = "Proveedor NoSQL (MongoDB)";
