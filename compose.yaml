@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb-container
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+  server-nosql:
+    build: .
+    container_name: server-nosql-container
+    ports:
+      - "8081:8080"
+    depends_on:
+      - mongodb
+    environment:
+      SPRING_DATA_MONGODB_HOST: mongodb
+
+volumes:
+  mongo_data:
